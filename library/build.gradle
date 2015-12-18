@@ -1,0 +1,24 @@
+apply plugin: 'com.android.library'
+apply from: 'publish.gradle'
+
+dependencies {
+    Map<String, String> dependencies = rootProject.ext.dependencies
+
+    compile dependencies.recyclerView
+
+    testCompile dependencies.jUnit
+    testCompile dependencies.hamcrestCore
+    testCompile dependencies.hamcrestLibrary
+    testCompile dependencies.hamcrestIntegration
+    testCompile dependencies.robolectric
+}
+
+android {
+    compileSdkVersion rootProject.ext.androidCompileSdkVersion
+    buildToolsVersion rootProject.ext.androidBuildToolsVersion
+
+    defaultConfig {
+        targetSdkVersion rootProject.ext.androidTargetSdkVersion
+        minSdkVersion 7
+    }
+}
